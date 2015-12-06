@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandelbrotAzureWebJob", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A14A06CB-D326-450C-AF55-65F4100EBC6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandelbrotAzureTrigger", "MandelbrotAzureTrigger\MandelbrotAzureTrigger.csproj", "{35474B8C-9A10-489E-B995-00A8E2952A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandelbrotAzure.Common", "MandelbrotAzure.Common\MandelbrotAzure.Common.csproj", "{061AE098-0C6B-48AD-BFED-DFD28BE4EB54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A14A06CB-D326-450C-AF55-65F4100EBC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A14A06CB-D326-450C-AF55-65F4100EBC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A14A06CB-D326-450C-AF55-65F4100EBC6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35474B8C-9A10-489E-B995-00A8E2952A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35474B8C-9A10-489E-B995-00A8E2952A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35474B8C-9A10-489E-B995-00A8E2952A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35474B8C-9A10-489E-B995-00A8E2952A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061AE098-0C6B-48AD-BFED-DFD28BE4EB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061AE098-0C6B-48AD-BFED-DFD28BE4EB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061AE098-0C6B-48AD-BFED-DFD28BE4EB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061AE098-0C6B-48AD-BFED-DFD28BE4EB54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

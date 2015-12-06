@@ -4,27 +4,40 @@ using Microsoft.Azure.WebJobs;
 using System.Drawing;
 using System.Drawing.Imaging;
 using Microsoft.ServiceBus.Messaging;
+using MandelbrotAzure.Common;
 
 namespace MandelbrotAzureWebJob
 {
     public class Functions
     {
         public static void Mandelbrot(
-            [ServiceBusTrigger("jobs")] string msgIn,
+            [ServiceBusTrigger("jobs")] BrokeredMessage msgIn,
             [Blob("images/mandelbrot.png", FileAccess.Write)] Stream output)
         {
             Console.WriteLine("Job received from queue. Starting...");
             var width = 1024;
             var height = 768;
+            var xmin = -2.3;
+            var ymin = -1.0;
+            var xmax = 0.8;
+            var ymax = 1.0;
+            Zoom zoom;
+            try
+            { 
+                zoom = msgIn.GetBody<Zoom>();
+                xmin = zoom.xmin;
+                ymin = zoom.ymin;
+                xmax = zoom.xmax;
+                ymax = zoom.ymax;
+            }
+            catch(Exception e)
+            {
+            }
 
             using (Bitmap b = new Bitmap(width, height))
             {
                 using (Graphics g = Graphics.FromImage(b))
                 {
-                    var xmin = -2.3;
-                    var ymin = -1.0;
-                    var xmax = 0.8;
-                    var ymax = 1.0;
                     double xDelta;
                     double yDelta;
                     var x0 = xmin;
