@@ -2,6 +2,7 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.ServiceBus;
 using Microsoft.WindowsAzure;
+using System;
 
 namespace MandelbrotAzureTrigger
 {
@@ -23,6 +24,7 @@ namespace MandelbrotAzureTrigger
         [NoAutomaticTrigger]
         public static void DoWork([ServiceBus("jobs")] Zoom outMsg)
         {
+            Console.WriteLine("Manual job started. Writing to job queue.");
             outMsg = new Zoom()
             {
                 xmin = 1,
