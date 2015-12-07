@@ -1,12 +1,13 @@
 ﻿using MandelbrotAzure.Common;
+using Microsoft.Azure;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.ServiceBus;
-using Microsoft.WindowsAzure;
+using Microsoft.ServiceBus.Messaging;
 using System;
 
 namespace MandelbrotAzureTrigger
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -21,17 +22,18 @@ namespace MandelbrotAzureTrigger
             host.Start();
         }
 
-        [NoAutomaticTrigger]
-        public static void DoWork([ServiceBus("jobs")] Zoom outMsg)
+        public static void DoWork([ServiceBus("jobs")] out BrokeredMessage outMsg)
         {
             Console.WriteLine("Manual job started. Writing to job queue.");
-            outMsg = new Zoom()
+            var zoom = new Zoom()
             {
                 xmin = 1,
                 xmax = 2,
                 ymin = 3,
                 ymax = 4
             };
+
+            outMsg = new BrokeredMessage(zoom);
         }
     }
 }
