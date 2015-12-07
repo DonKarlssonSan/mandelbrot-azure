@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
+  "WebJobs": [
+    {
+      "filePath": "../MandelbrotAzureWebJob/MandelbrotAzureWebJob.csproj"
+    },
+    {
+      "filePath": "../MandelbrotAzureTrigger/MandelbrotAzureTrigger.csproj"
+    }
+  ]
+}
